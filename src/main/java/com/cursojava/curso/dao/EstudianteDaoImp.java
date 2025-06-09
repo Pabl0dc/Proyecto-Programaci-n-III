@@ -28,6 +28,22 @@ public class EstudianteDaoImp implements EstudianteDao {
     }
 
     @Override
+    public void editar(Estudiantes estudiantes) {
+        entityManager.merge(estudiantes);
+    }
+
+    @Override
+    public void editarParcial(Long id, String email, String telefono, String idioma) {
+        Estudiantes estudiante = entityManager.find(Estudiantes.class, id);
+        if (estudiante != null) {
+            estudiante.setEmail(email);
+            estudiante.setTelefono(telefono);
+            estudiante.setIdioma(idioma);
+            entityManager.merge(estudiante);
+        }
+    }
+
+    @Override
     public void eliminar(Long id) {
         Estudiantes estudiantes = entityManager.find(Estudiantes.class, id);
         entityManager.remove(estudiantes);
@@ -38,24 +54,4 @@ public class EstudianteDaoImp implements EstudianteDao {
         entityManager.merge(estudiantes);
     }
 
-//    @Override
-//    public Estudiantes obtenerEstudiantePorCredenciales(Estudiantes estudiantes){
-//        String query = "FROM Estudiante WHERE email = :email";
-//        List<Estudiantes> lista = entityManager.createQuery(query)
-//                .setParameter("email", estudiantes.getEmail())
-//                .getResultList();
-//
-//        if(lista.isEmpty()){
-//            return null;
-//        }
-//
-//        String passwordHashed = lista.get(0).getIdioma();
-//
-//        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2d);
-//        if (argon2.verify(passwordHashed, estudiantes.getIdioma())){
-//            return lista.get(0);
-//        }
-//        return null;
-//
-//    }
 }

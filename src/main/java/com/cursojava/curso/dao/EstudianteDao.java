@@ -12,5 +12,7 @@ public interface EstudianteDao {
 
     void registrar(Estudiantes estudiantes);
 
-//    Estudiantes obtenerEstudiantePorCredenciales(Estudiantes estudiantes);
+    void editar(Estudiantes estudiantes);
+
+    void editarParcial(Long id, String email, String telefono, String idioma);
 }

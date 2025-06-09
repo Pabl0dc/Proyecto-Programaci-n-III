@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Datos de Alumno</title>
+    <title>Editar Parcialmente</title>
     <link rel="icon" href="img/alumno.png" type="image/png">
 
     <!-- Custom fonts for this template-->
@@ -35,7 +35,7 @@
                 <div class="col-lg-7">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Datos de Alumno</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Editar Parcialmente</h1>
                         </div>
                         <form class="user">
                             <div class="form-group row">
@@ -50,26 +50,20 @@
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" id="txtEmail"
-                                       placeholder="Email" readonly>
+                                       placeholder="Email">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user"
-                                           id="txtTelefono" placeholder="Teléfono" readonly>
+                                           id="txtTelefono" placeholder="Teléfono">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control form-control-user"
-                                           id="txtIdioma" placeholder="Idioma" readonly>
+                                           id="txtIdioma" placeholder="Idioma">
                                 </div>
                             </div>
-                            <a id="botonCompleto" href="estudianteindividualcompleto.html" class="btn btn-primary btn-user btn-block">
-                                Editar Completamente
-                            </a>
-                            <a id="botonParcial" href="estudianteindividualparcial.html" class="btn btn-primary btn-user btn-block">
-                                Editar Parcialmente
-                            </a>
-                            <a href="estudiantes.html" class="btn btn-primary btn-user btn-block">
-                                Estudiantes Registrados
+                            <a onclick="editarParcial()" href="#" class="btn btn-primary btn-user btn-block">
+                                Confirmar
                             </a>
                         </form>
                         <hr>
@@ -91,7 +85,7 @@
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
 
-<script src="js/infoindividual.js"></script>
+<script src="js/estudianteindividual.js"></script>
 
 
 </body>

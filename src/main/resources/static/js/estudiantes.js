@@ -25,8 +25,9 @@ async function cargarEstudiantes(){
   let listadoHtml = '';
   for (let estudiante of estudiantes){
     let botonEliminar = '<a href="#" onclick="eliminarEstudiante('+ estudiante.id +')" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>';
+    let botonEditar = '<a href="estudianteindividual.html?id=' + estudiante.id + '" class="btn btn-secondary btn-circle"><i class="fas fa-info-circle"></i></a>';
 
-    let estudianteHtml = '<tr><td>'+estudiante.id+'</td><td>'+estudiante.nombre+' '+estudiante.apellido+'</td><td>'+estudiante.email+'</td><td>'+estudiante.telefono+'</td><td>'+estudiante.idioma+'</td><td>' + botonEliminar + '</td></tr>';
+    let estudianteHtml = '<tr><td>'+estudiante.id+'</td><td>'+estudiante.nombre+' '+estudiante.apellido+'</td><td>'+estudiante.email+'</td><td>'+estudiante.telefono+'</td><td>'+estudiante.idioma+'</td><td>' + botonEliminar + ' ' + botonEditar + '</td></tr>';
     listadoHtml += estudianteHtml;
   }
 

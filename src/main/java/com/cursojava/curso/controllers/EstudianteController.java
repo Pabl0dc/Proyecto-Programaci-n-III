@@ -5,6 +5,9 @@ import com.cursojava.curso.models.Estudiantes;
 import com.cursojava.curso.service.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -33,6 +36,17 @@ public class EstudianteController {
     public void registrarEstudiante(@RequestBody Estudiantes estudiantes){
 
         estudianteDao.registrar(estudiantes);
+    }
+
+    @PutMapping(value = "api/estudiantes/{id}")
+    public void editar(@PathVariable Long id, @RequestBody Estudiantes estudiante) {
+        estudiante.setId(id);
+        estudianteDao.editar(estudiante);
+    }
+
+    @PutMapping("/{id}/parcial")
+    public void editarParcial(@PathVariable Long id, @RequestBody Estudiantes estudiante) {
+        estudianteDao.editarParcial(id, estudiante.getEmail(), estudiante.getTelefono(), estudiante.getIdioma());
     }
 
 
