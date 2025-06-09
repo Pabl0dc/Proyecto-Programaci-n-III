@@ -12,12 +12,22 @@ async function registrarEstudiante(){
   datos.telefono = document.getElementById('txtTelefono').value;
   datos.idioma = document.getElementById('txtIdioma').value;
 
-  //let repetirPassword = document.getElementById('txtRepetirPassword').value;
+  //let Idioma = document.getElementById('idioma').value;
 
-  //if(repetirPassword != datos.password){
-    //alert('La contraseña que escribiste es diferente.');
+  //if(repetirIdioma != datos.idioma){
+    //alert('El idioma que escribiste es diferente.');
     //return;
   //}
+
+  function validacionIdioma(idioma) {
+    return ["inglés", "español", "francés"].includes(idioma.toLowerCase());
+  }
+
+  if (!validacionIdioma(datos.idioma)) {
+      alert("Idioma inválido. Debe ser inglés, español o francés.");
+      return;
+    }
+
 
   const request = await fetch('api/estudiantes', {
     method: 'POST',
@@ -28,6 +38,6 @@ async function registrarEstudiante(){
     body: JSON.stringify(datos)
 
   });
-    alert("¡La cuenta fue creada exitosamente! :D");
-          window.location.href = 'login.html'
+    //alert("¡La cuenta fue creada exitosamente! :D");
+          window.location.href = 'estudiantes.html'
 }

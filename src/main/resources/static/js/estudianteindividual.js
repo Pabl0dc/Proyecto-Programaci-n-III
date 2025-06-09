@@ -2,17 +2,21 @@
 $(document).ready(function() {
     cargarEstudiantes();
   $('#estudiantes').DataTable({
-    lengthChange: false,
 
-    searching: false});
+    editar();
+    editarParcial();
 
-//  actualizarEmailDelEstudiante();
 });
 
 //function actualizarEmailDelEstudiante(){
 //    document.getElementById('txt-email-estudiante').outerHTML = localStorage.email;
 //}
-
+async function editar(){
+  const request = await fetch('api/estudiantes/{id}', {
+    method: 'PUT',
+    headers: getHeaders()
+  });
+  const estudiantes = await request.json();
 
 async function cargarEstudiantes(){
   const request = await fetch('api/estudiantes', {
