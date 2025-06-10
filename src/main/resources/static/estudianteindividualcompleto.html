@@ -54,16 +54,19 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user"
-                                           id="txtTelefono" placeholder="Teléfono">
+                                    <input type="number" class="form-control form-control-user" id="txtTelefono"
+                                           placeholder="Teléfono" min="0" step="1" oninput="limitarTelefono(this);">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control form-control-user"
                                            id="txtIdioma" placeholder="Idioma">
                                 </div>
                             </div>
-                            <a onclick="editar()" href="estudiantes.html" class="btn btn-primary btn-user btn-block">
+                            <a onclick="editar()" href="#" class="btn btn-primary btn-user btn-block">
                                 Confirmar
+                            </a>
+                            <a onclick="confirmarCancelacion()" href="estudiantes.html" class="btn btn-primary btn-user btn-block">
+                                Cancelar Edición
                             </a>
                         </form>
                         <hr>
@@ -89,5 +92,17 @@
 
 
 </body>
+
+<script>
+    function confirmarCancelacion() {
+        return confirm("¿Seguro que desea cancelar el proceso?");
+    }
+
+    function limitarTelefono(input) {
+        if (input.value.length > 10) {
+            input.value = input.value.slice(0, 10);
+        }
+    }
+</script>
 
 </html>

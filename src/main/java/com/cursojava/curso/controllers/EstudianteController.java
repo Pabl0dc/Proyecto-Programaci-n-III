@@ -2,7 +2,7 @@ package com.cursojava.curso.controllers;
 
 import com.cursojava.curso.dao.EstudianteDao;
 import com.cursojava.curso.models.Estudiantes;
-import com.cursojava.curso.service.EstudianteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,12 +17,10 @@ public class EstudianteController {
     @Autowired
     private EstudianteDao estudianteDao;
 
-    @Autowired
-    private EstudianteService estudianteService;
 
     @RequestMapping(value = "api/estudiantes/{id}", method = RequestMethod.GET)
     public Estudiantes getEstudiante(@PathVariable Long id){
-        return estudianteService.getEstudiante(id);
+        return estudianteDao.getEstudiante(id);
     }
 
     @RequestMapping(value = "api/estudiantes", method = RequestMethod.GET)
@@ -44,7 +42,7 @@ public class EstudianteController {
         estudianteDao.editar(estudiante);
     }
 
-    @PutMapping("/{id}/parcial")
+    @RequestMapping(value = "api/estudiantes/{id}", method = RequestMethod.PATCH)
     public void editarParcial(@PathVariable Long id, @RequestBody Estudiantes estudiante) {
         estudianteDao.editarParcial(id, estudiante.getEmail(), estudiante.getTelefono(), estudiante.getIdioma());
     }
