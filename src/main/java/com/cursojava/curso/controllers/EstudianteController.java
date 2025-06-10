@@ -52,15 +52,4 @@ public class EstudianteController {
     public void eliminar(@PathVariable Long id){
         estudianteDao.eliminar(id);
     }
-
-
-    //@RequestMapping(value = "estudiante")
-    //public Estudiantes buscar(){
-        //Estudiantes estudiante = new Estudiantes();
-        //estudiante.setNombre("Pablo");
-        //estudiante.setApellido("Del Cid");
-        //estudiante.setEmail("pablo2005ale@gmail.com");
-        //estudiante.setTelefono("5561 4105");
-        //return estudiante;
-    //}
 }
